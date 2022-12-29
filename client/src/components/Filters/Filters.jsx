@@ -1,7 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getDogs,
+  getTemperaments,
   filterCreated,
   orderBy,
   filterTemperaments,
@@ -13,6 +15,10 @@ export const Filters = () => {
   const { temperaments, filters } = useSelector((state) => state);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTemperaments());
+  }, [dispatch]);
 
   ////////////////////////////////////////////////////////////////////////
 
@@ -35,13 +41,23 @@ export const Filters = () => {
         <Nav />
         <div>
           <select name="Created in Database" onChange={handleClickCreated}>
-            <option value="ALL">All</option>
-            <option value="API">Originals</option>
-            <option value="CREATED_IN_DB">Created by user</option>
+            <option value="ALL" id="ALL">
+              All
+            </option>
+            <option value="API" id="API">
+              Originals
+            </option>
+            <option value="CREATED_IN_DB" id="CREATED_IN_DB">
+              Created by user
+            </option>
           </select>
           <select name="Filter by temperaments" onChange={handleTemperaments}>
             <option hidden>Filter by temperaments</option>
-            <option></option>
+            {temperaments.map((t) => (
+              <option value={t.name} key={t.id}>
+                {t.name}
+              </option>
+            ))}
           </select>
           <select name="Order alphabetically" onChange={handleClickOrderBy}>
             <option hidden>Order </option>
@@ -57,7 +73,6 @@ export const Filters = () => {
             </option>
           </select>
         </div>
-        <div></div>
       </form>
     </>
   );

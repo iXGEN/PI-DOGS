@@ -14,6 +14,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         allDogs: action.payload,
       };
+    case "GET_TEMPERAMENTS":
+      return {
+        ...state,
+        temperaments: action.payload,
+      };
     case "SEARCH_DOG":
       return {
         ...state,
@@ -43,12 +48,10 @@ function rootReducer(state = initialState, action) {
       };
 
     case "FILTER_TEMPERAMENTS":
-      const dogsFilteredByTemps = state.copyAllDogs.filter((d) =>
-        d.temperament?.includes(action.payload) ? d : null
-      );
       return {
         ...state,
-        allDogs: dogsFilteredByTemps,
+        filters: { ...state.filters, filterByTemperament: action.payload },
+        currentPage: 1,
       };
 
     case "ORDER_BY":
