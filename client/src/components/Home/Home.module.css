@@ -1,0 +1,32 @@
+.home {
+  background-repeat: no-repeat;
+  background: url("../../images/homeBackground.webp");
+  background-size: cover;
+  position: absolute;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+/* .filters {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+} */
+
+.pages {
+  display: flex;
+  justify-content: center;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+}
+
+.loader {
+  display: flex;
+  margin: 1em;
+  padding-bottom: 20em;
+}
