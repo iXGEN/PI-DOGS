@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  background-color: white;
+  border-radius: 20px;
+  width: 50%;
+}
+.title {
+  display: flex;
+}
+
+.forms {
+  margin-top: 6;
+}
+
+.labels {
+  display: block;
+  padding-bottom: 2;
+}

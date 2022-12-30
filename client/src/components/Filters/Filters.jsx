@@ -40,7 +40,11 @@ export const Filters = () => {
       <form action="">
         <Nav />
         <div>
-          <select name="Created in Database" onChange={handleClickCreated}>
+          <select
+            name="Created in Database"
+            value={filters.origin}
+            onChange={handleClickCreated}
+          >
             <option value="ALL" id="ALL">
               All
             </option>
@@ -51,7 +55,11 @@ export const Filters = () => {
               Created by user
             </option>
           </select>
-          <select name="Filter by temperaments" onChange={handleTemperaments}>
+          <select
+            name="Filter by temperaments"
+            value={filters.filterByTemperament}
+            onChange={handleTemperaments}
+          >
             <option hidden>Filter by temperaments</option>
             {temperaments.map((t) => (
               <option value={t.name} key={t.id}>
@@ -59,7 +67,11 @@ export const Filters = () => {
               </option>
             ))}
           </select>
-          <select name="Order alphabetically" onChange={handleClickOrderBy}>
+          <select
+            name="Order alphabetically"
+            value={filters.orderBy}
+            onChange={handleClickOrderBy}
+          >
             <option hidden>Order </option>
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>

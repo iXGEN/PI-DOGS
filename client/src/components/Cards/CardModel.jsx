@@ -11,8 +11,10 @@ export const CardModel = (props) => {
         ) : (
           <p>{props.temperament}</p>
         )}
-        <h3 className={style.title}>{props.name}</h3>
-        <img className={style.image} src={props.image} />
+        <div>
+          <h3 className={style.title}> {props.name}</h3>
+          <img className={style.image} src={props.image} />
+        </div>
       </div>
     </Link>
   );
