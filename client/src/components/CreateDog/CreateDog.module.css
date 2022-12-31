@@ -1,6 +1,7 @@
 .main {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .form {
@@ -9,7 +10,6 @@
   width: 50%;
 }
 .title {
-  display: flex;
 }
 
 .forms {
@@ -17,6 +17,11 @@
 }
 
 .labels {
-  display: block;
-  padding-bottom: 2;
+  margin-right: 5px;
+}
+.error {
+  color: red;
+  font-size: small;
+  padding: 0;
+  margin: 0;
 }

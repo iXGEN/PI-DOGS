@@ -31,7 +31,6 @@ export const Pagination = (props) => {
       ) : (
         <>
           <button disable>{"<"}</button>
-          <button disable>{currentPage - 1}</button>
         </>
       )}
 
@@ -44,6 +43,13 @@ export const Pagination = (props) => {
           >
             {currentPage + 1}
           </button>
+          {currentPage === 1 ? (
+            <button
+              onClick={() => dispatch(actions.pageChanging(currentPage + 2))}
+            >
+              {currentPage + 2}
+            </button>
+          ) : null}
           <button
             onClick={() => dispatch(actions.pageChanging(currentPage + 1))}
           >

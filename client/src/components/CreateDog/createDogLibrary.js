@@ -26,55 +26,66 @@ const dogValidation = ({
   );
   const validationErrors = {};
 
+  if (
+    parseInt(min_weight) === 0 ||
+    parseInt(max_weight) === 0 ||
+    parseInt(min_weight) >= parseInt(max_weight)
+  ) {
+    validationErrors.min_weight =
+      "Minimum weight must be less than the Maximum weight";
+    validationErrors.max_weight =
+      "Minimum weight must be less than the Maximum weight";
+  }
+
   if (name.toString().trim().length === 0) {
-    validationErrors.name = "El name esta Vacio";
+    validationErrors.name = "Name is empty";
   }
   if (min_weight.toString().trim().length === 0) {
-    validationErrors.min_weight = "La min_weight esta Vacia";
+    validationErrors.min_weight = "Minimum weight field is empty";
   } else if (typeof min_weight === "number") {
-    validationErrors.min_weight = "La min_weight No es un Numero";
+    validationErrors.min_weight = "Minimum weight must be a number";
   }
 
   if (max_weight.toString().trim().length === 0) {
-    validationErrors.max_weight = "La max_weight esta Vacia";
+    validationErrors.max_weight = "Maximum weight field is empty";
   } else if (typeof max_weight === "number") {
-    validationErrors.max_weight = "La max_weight No es un Numero";
+    validationErrors.max_weight = "Minimum weight must be a number";
   }
   /*  else if (altura < 0 || altura > 280) {
       validationErrors.altura = "La Altura solo puede estar entre 0 a 280";
     } */
 
   if (min_height.toString().trim().length === 0) {
-    validationErrors.min_height = "El min_height esta Vacio";
+    validationErrors.min_height = "Minimum height field is empty";
   } else if (typeof min_height === "number") {
-    validationErrors.min_height = "El min_height No es un Numero";
+    validationErrors.min_height = "Minimum height must be a number";
   } /* else if (min_height < 0 || min_height > 280) {
       validationErrors.min_height = "El Peso solo puede estar entre 0 a 280";
     } */
   if (max_height.toString().trim().length === 0) {
-    validationErrors.max_height = "El max_height esta Vacio";
+    validationErrors.max_height = "Maximum height field is empty";
   } else if (typeof max_height === "number") {
-    validationErrors.max_height = "El max_height No es un Numero";
+    validationErrors.max_height = "Maximum height must be a number";
   } /* else if (max_height < 0 || max_height > 280) {
       validationErrors.max_height = "El Peso solo puede estar entre 0 a 280";
     } */
 
   if (lifespan.toString().trim().length === 0) {
-    validationErrors.lifespan = "La lifespan esta Vacia";
+    validationErrors.lifespan = "Lifespan field is empty";
   } else if (typeof lifespan === "number") {
-    validationErrors.lifespan = "La lifespan No es un Numero";
+    validationErrors.lifespan = "Lifespan must be a number";
   } else if (lifespan < 0) {
-    validationErrors.lifespan = "Life span needs to be more than 0 years";
+    validationErrors.lifespan = "Lifespan must be more than 0 years";
   }
 
   if (image.toString().trim().length === 0) {
-    validationErrors.image = "La image esta Vacia";
+    validationErrors.image = "image URL is empty";
   } else if (!/^https?:\/\/[\w]+(\.[\w]+)+[/#?]?.*$/.test(image)) {
-    validationErrors.image = "La Url de la image no es Valida";
+    validationErrors.image = "The URL is not valid";
   }
 
   if (temperament.length === 0) {
-    validationErrors.temperament = "Los temperament estan Vacia";
+    validationErrors.temperament = "You must add at least one temperament";
   }
 
   return validationErrors; // {name: error, min_weight: error, max_weight: error}
