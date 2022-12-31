@@ -34,7 +34,7 @@ const dogValidation = ({
     validationErrors.min_weight =
       "Minimum weight must be less than the Maximum weight";
     validationErrors.max_weight =
-      "Minimum weight must be less than the Maximum weight";
+      "Maximum weight must be greater than the Minimum weight";
   }
 
   if (name.toString().trim().length === 0) {
@@ -55,20 +55,27 @@ const dogValidation = ({
       validationErrors.altura = "La Altura solo puede estar entre 0 a 280";
     } */
 
+  if (
+    parseInt(min_height) === 0 ||
+    parseInt(max_height) === 0 ||
+    parseInt(min_height) >= parseInt(max_height)
+  ) {
+    validationErrors.min_height =
+      "Minimum height must be less than the Maximum height";
+    validationErrors.max_height =
+      "Maximum height must be greater than the Minimum height";
+  }
+
   if (min_height.toString().trim().length === 0) {
     validationErrors.min_height = "Minimum height field is empty";
   } else if (typeof min_height === "number") {
     validationErrors.min_height = "Minimum height must be a number";
-  } /* else if (min_height < 0 || min_height > 280) {
-      validationErrors.min_height = "El Peso solo puede estar entre 0 a 280";
-    } */
+  }
   if (max_height.toString().trim().length === 0) {
     validationErrors.max_height = "Maximum height field is empty";
   } else if (typeof max_height === "number") {
     validationErrors.max_height = "Maximum height must be a number";
-  } /* else if (max_height < 0 || max_height > 280) {
-      validationErrors.max_height = "El Peso solo puede estar entre 0 a 280";
-    } */
+  }
 
   if (lifespan.toString().trim().length === 0) {
     validationErrors.lifespan = "Lifespan field is empty";
