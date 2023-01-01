@@ -1,7 +1,7 @@
 import React from "react"; //rsc
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogs, getTemperaments, postDog } from "../../redux/actions";
+import { getTemperaments, postDog } from "../../redux/actions";
 import style from "../CreateDog/CreateDog.module.css";
 import dogValidation from "./createDogLibrary.js";
 
@@ -15,7 +15,8 @@ const CreateDog = () => {
     max_weight: "",
     min_height: "",
     max_height: "",
-    lifespan: "",
+    min_lifespan: "",
+    max_lifespan: "",
     image: "",
     temperament: [],
   });
@@ -52,8 +53,33 @@ const CreateDog = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const noErrors = Object.keys(errors).length === 0;
-    if (noErrors) {
-      dispatch(postDog(input));
+    /* if (noErrors) { */
+    if (
+      !errors.name &&
+      !errors.min_weight &&
+      !errors.max_weight &&
+      !errors.min_height &&
+      !errors.max_height &&
+      !errors.temperament
+    ) {
+      let dogLS = {};
+      for (var k in input) dogLS[k] = input[k];
+      dogLS.lifespan = `${dogLS.min_lifespan} - ${dogLS.max_lifespan} years`;
+      dispatch(postDog(dogLS));
+      alert("DOG SUCCESSFULLY CREATED");
+      setInput({
+        name: "",
+        min_weight: "",
+        max_weight: "",
+        min_height: "",
+        max_height: "",
+        min_lifespan: "",
+        max_lifespan: "",
+        image: "",
+        temperament: [],
+      });
+    } else {
+      alert("Some fields have errors");
     }
   };
 
@@ -135,17 +161,31 @@ const CreateDog = () => {
             ) : null}
           </div>
           <div>
-            <label className={style.labels}>Life span</label>
+            <label className={style.labels}>Minimum Life span</label>
             <input
               type="number"
-              name="lifespan"
-              value={input.lifespan}
-              placeholder="Enter life span"
+              name="min_lifespan"
+              value={input.min_lifespan}
+              placeholder="Enter min life span"
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.lifespan ? (
-              <p className={style.error}>{errors.lifespan}</p>
+            {errors.min_lifespan ? (
+              <p className={style.error}>{errors.min_lifespan}</p>
+            ) : null}
+          </div>
+          <div>
+            <label className={style.labels}>Maximum Life span</label>
+            <input
+              type="number"
+              name="max_lifespan"
+              value={input.max_lifespan}
+              placeholder="Enter max life span"
+              autoComplete="off"
+              onChange={handleInputs}
+            />
+            {errors.max_lifespan ? (
+              <p className={style.error}>{errors.max_lifespan}</p>
             ) : null}
           </div>
           <div>
@@ -170,15 +210,18 @@ const CreateDog = () => {
                   {t.name}
                 </option>
               ))}
+              {errors.temperament ? (
+                <p className={style.error}>{errors.temperament}</p>
+              ) : null}
             </select>
             <div>
               <div>Selected temperaments: </div>
               {input.temperament.map((t) => {
-                return <div>{t}</div>;
+                return <div className={style.temperamentsDiv}>{t}</div>;
               })}
             </div>
           </div>
-          <button onClick={handleSubmit}>Crear</button>
+          <button onClick={handleSubmit}>Create</button>
         </div>
       </form>
     </main>

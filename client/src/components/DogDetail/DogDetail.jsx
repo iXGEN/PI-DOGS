@@ -9,7 +9,7 @@ export const DogDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const dogId = useSelector((state) => state.dogId);
-  console.log(dogId);
+
   useEffect(() => {
     dispatch(actions.getDogById(id));
     return;

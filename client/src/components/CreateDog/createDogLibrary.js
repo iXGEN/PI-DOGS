@@ -10,7 +10,8 @@ const dogValidation = ({
   max_weight,
   min_height,
   max_height,
-  lifespan,
+  min_lifespan,
+  max_lifespan,
   image,
   temperament,
 }) => {
@@ -20,7 +21,8 @@ const dogValidation = ({
     max_weight,
     min_height,
     max_height,
-    lifespan,
+    min_lifespan,
+    max_lifespan,
     image,
     temperament
   );
@@ -77,12 +79,32 @@ const dogValidation = ({
     validationErrors.max_height = "Maximum height must be a number";
   }
 
-  if (lifespan.toString().trim().length === 0) {
-    validationErrors.lifespan = "Lifespan field is empty";
-  } else if (typeof lifespan === "number") {
-    validationErrors.lifespan = "Lifespan must be a number";
-  } else if (lifespan < 0) {
-    validationErrors.lifespan = "Lifespan must be more than 0 years";
+  if (
+    parseInt(min_lifespan) === 0 ||
+    parseInt(max_lifespan) === 0 ||
+    parseInt(min_lifespan) >= parseInt(max_lifespan)
+  ) {
+    validationErrors.min_lifespan =
+      "Minimum lifespan must be less than the Maximum lifespan";
+    validationErrors.max_lifespan =
+      "Maximum lifespan must be greater than the Minimum lifespan";
+  }
+
+  if (min_lifespan.toString().trim().length === 0) {
+    validationErrors.min_lifespan = "Minimum lifespan field is empty";
+  } else if (typeof min_lifespan === "number") {
+    validationErrors.min_lifespan = "Minimum lifespan must be a number";
+  } else if (min_lifespan < 0) {
+    validationErrors.min_lifespan =
+      "Minimum lifespan must be more than 0 years";
+  }
+  if (max_lifespan.toString().trim().length === 0) {
+    validationErrors.max_lifespan = "Maximum lifespan field is empty";
+  } else if (typeof max_lifespan === "number") {
+    validationErrors.max_lifespan = "Maximum lifespan must be a number";
+  } else if (max_lifespan < 0) {
+    validationErrors.max_lifespan =
+      "Maximum lifespan must be more than 0 years";
   }
 
   if (image.toString().trim().length === 0) {
