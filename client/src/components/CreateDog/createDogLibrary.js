@@ -34,22 +34,24 @@ const dogValidation = ({
     parseInt(min_weight) >= parseInt(max_weight)
   ) {
     validationErrors.min_weight =
-      "Minimum weight must be less than the Maximum weight";
+      "REQUIRED: Minimum weight must be less than the Maximum weight";
     validationErrors.max_weight =
-      "Maximum weight must be greater than the Minimum weight";
+      "REQUIRED: Maximum weight must be greater than the Minimum weight";
   }
 
   if (name.toString().trim().length === 0) {
-    validationErrors.name = "Name is empty";
+    validationErrors.name = "REQUIRED: Name field has to be filled";
   }
   if (min_weight.toString().trim().length === 0) {
-    validationErrors.min_weight = "Minimum weight field is empty";
+    validationErrors.min_weight =
+      "REQUIRED: Minimum weight field has to be filled";
   } else if (typeof min_weight === "number") {
     validationErrors.min_weight = "Minimum weight must be a number";
   }
 
   if (max_weight.toString().trim().length === 0) {
-    validationErrors.max_weight = "Maximum weight field is empty";
+    validationErrors.max_weight =
+      "REQUIRED: Maximum weight field has to be filled";
   } else if (typeof max_weight === "number") {
     validationErrors.max_weight = "Minimum weight must be a number";
   }
@@ -63,18 +65,20 @@ const dogValidation = ({
     parseInt(min_height) >= parseInt(max_height)
   ) {
     validationErrors.min_height =
-      "Minimum height must be less than the Maximum height";
+      "REQUIRED: Minimum height must be less than the Maximum height";
     validationErrors.max_height =
-      "Maximum height must be greater than the Minimum height";
+      "REQUIRED: Maximum height must be greater than the Minimum height";
   }
 
   if (min_height.toString().trim().length === 0) {
-    validationErrors.min_height = "Minimum height field is empty";
+    validationErrors.min_height =
+      "REQUIRED: Minimum height field has to be filled";
   } else if (typeof min_height === "number") {
     validationErrors.min_height = "Minimum height must be a number";
   }
   if (max_height.toString().trim().length === 0) {
-    validationErrors.max_height = "Maximum height field is empty";
+    validationErrors.max_height =
+      "REQUIRED: Maximum height field has to be filled";
   } else if (typeof max_height === "number") {
     validationErrors.max_height = "Maximum height must be a number";
   }

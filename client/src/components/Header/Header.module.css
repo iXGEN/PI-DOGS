@@ -72,23 +72,15 @@ header a {
 }
 
 .box:hover:before {
-  border-color: rgba(49, 42, 36, 0.7);
+  border-color: rgba(154, 112, 84, 0.9);
   height: 100%;
   transform: translateX(0);
   transition: 0.3s transform linear, 0.3s height linear 0.3s;
 }
 
 .box:hover:after {
-  border-color: rgba(49, 42, 36, 0.7);
+  border-color: rgba(154, 112, 84, 0.9);
   height: 100%;
   transform: translateX(0);
   transition: 0.3s transform linear, 0.3s height linear 0.5s;
-}
-
-@media only screen and (max-width: 650px) {
-  .header {
-    flex-wrap: wrap;
-    padding: 0.5em;
-    backdrop-filter: blur(3px);
-  }
 }

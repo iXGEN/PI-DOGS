@@ -26,13 +26,14 @@ export const SearchBar = () => {
         placeholder="Search a dog..."
         autoComplete={"off"}
         onChange={(e) => handleChange(e)}
-      ></input>
+      />
       <button
         className={style.button}
         type="submit"
         onClick={(e) => handleSubmit(e)}
-      ></button>
-      <span>Search</span>
+      >
+        <span>Search</span>
+      </button>
     </div>
   );
 };

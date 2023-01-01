@@ -60,7 +60,8 @@ const CreateDog = () => {
       !errors.max_weight &&
       !errors.min_height &&
       !errors.max_height &&
-      !errors.temperament
+      !errors.temperament &&
+      input.name
     ) {
       let dogLS = {};
       for (var k in input) dogLS[k] = input[k];
@@ -79,7 +80,7 @@ const CreateDog = () => {
         temperament: [],
       });
     } else {
-      alert("Some fields have errors");
+      alert("SOME FIELDS HAVE ERRORS");
     }
   };
 
@@ -171,7 +172,7 @@ const CreateDog = () => {
               onChange={handleInputs}
             />
             {errors.min_lifespan ? (
-              <p className={style.error}>{errors.min_lifespan}</p>
+              <p className={style.semiError}>{errors.min_lifespan}</p>
             ) : null}
           </div>
           <div>
@@ -185,7 +186,7 @@ const CreateDog = () => {
               onChange={handleInputs}
             />
             {errors.max_lifespan ? (
-              <p className={style.error}>{errors.max_lifespan}</p>
+              <p className={style.semiError}>{errors.max_lifespan}</p>
             ) : null}
           </div>
           <div>
@@ -199,7 +200,7 @@ const CreateDog = () => {
               onChange={handleInputs}
             />
             {errors.image ? (
-              <p className={style.error}>{errors.image}</p>
+              <p className={style.semiError}>{errors.image}</p>
             ) : null}
           </div>
           <div>

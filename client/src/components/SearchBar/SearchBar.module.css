@@ -9,7 +9,7 @@
   width: 12em;
   margin-right: 2px;
   color: rgba(0, 0, 0, 0.8);
-  font-family: "Sniglet", cursive;
+  font-family: cursive;
   font-size: 1em;
   border: 2px solid rgb(200, 200, 200);
   background-color: rgb(255, 255, 255);
@@ -32,42 +32,25 @@
   top: 0;
   left: 0;
   display: block;
-  border-radius: 5px;
+  border-radius: 4px;
   background: rgba(154, 112, 84, 0.9);
-  width: 45px;
+  width: 90px;
   height: 35px;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .button span {
   position: relative;
-  font-family: "Sniglet", cursive;
-  font-weight: bold;
-  font-size: 18px;
+  font-family: cursive;
+  font-size: 16px;
   color: rgba(0, 0, 0, 0.8);
 }
 
 .button:hover:before {
-  width: 100%;
-  background: rgba(222, 174, 198);
+  width: 95%;
+  background: rgb(222, 208, 174);
 }
 
 .button:active {
-  transform: scale(0.95);
-}
-
-@media only screen and (max-width: 650px) {
-  .container {
-    display: inline-flex;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .input {
-    margin-bottom: 1.5em;
-  }
-
-  .button {
-    margin-bottom: 1.5em;
-    padding: 0px 5px;
-  }
+  transform: scale(0.8);
 }

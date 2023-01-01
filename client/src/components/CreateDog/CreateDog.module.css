@@ -26,6 +26,13 @@
   margin: 0;
 }
 
+.semiError {
+  color: orange;
+  font-size: small;
+  padding: 0;
+  margin: 0;
+}
+
 .temperamentsDiv {
   display: inline-block;
   background-color: #864d07;

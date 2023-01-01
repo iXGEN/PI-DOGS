@@ -16,7 +16,8 @@ export const Cards = ({ currentCharacters }) => {
           key={el.id}
           id={el.id}
           temperament={el.temperament}
-          temperaments={el.temperaments}
+          min_weight={el.min_weight}
+          max_weight={el.max_weight}
         />
       ))}
     </div>
