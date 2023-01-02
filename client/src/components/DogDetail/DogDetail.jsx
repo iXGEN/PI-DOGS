@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/actions/index";
 import { useParams } from "react-router-dom";
-import Header from "../Header/Header";
 import style from "../DogDetail/DogDetail.module.css";
 
 export const DogDetail = () => {
@@ -24,20 +23,31 @@ export const DogDetail = () => {
 
   return (
     <div>
-      {console.log(dogId)}
       {dogId.length > 0 ? (
-        <div className={style.container}>
+        <div>
           <section className={style.dataSection}>
-            <h1>{dogId[0]?.name}</h1>
-            <img className={style.img} src={dogId[0]?.image.url} />
-            <p className={style.p}>Temperaments: {dogId[0]?.temperament}</p>
-            <p className={style.p}>Minimum Weight: {dogId[0]?.min_weight}kg</p>
-            <p className={style.p}>Maximum Weight: {dogId[0]?.max_weight}kg</p>
-            <p className={style.p}>Minimum Height: {dogId[0]?.min_height}cm</p>
-            <p className={style.p}>Maximum Height: {dogId[0]?.max_height}cm</p>
-            <p className={style.p}>Lifespan: {dogId[0]?.lifespan}</p>
-            <p className={style.p}>{dogId[0]?.width}</p>
-            <p className={style.p}>{dogId[0]?.width}</p>
+            <div className={style.leftDiv}>
+              <h1>{dogId[0]?.name}</h1>
+              <img className={style.img} src={dogId[0]?.image.url} />
+            </div>
+            <div className={style.rightDiv}>
+              <p className={style.p}>Temperaments: {dogId[0]?.temperament}</p>
+              <p className={style.p}>
+                Minimum Weight: {dogId[0]?.min_weight}kg
+              </p>
+              <p className={style.p}>
+                Maximum Weight: {dogId[0]?.max_weight}kg
+              </p>
+              <p className={style.p}>
+                Minimum Height: {dogId[0]?.min_height}cm
+              </p>
+              <p className={style.p}>
+                Maximum Height: {dogId[0]?.max_height}cm
+              </p>
+              <p className={style.p}>Lifespan: {dogId[0]?.lifespan}</p>
+              <p className={style.p}>{dogId[0]?.width}</p>
+              <p className={style.p}>{dogId[0]?.width}</p>
+            </div>
           </section>
         </div>
       ) : (

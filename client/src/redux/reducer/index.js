@@ -60,6 +60,12 @@ function rootReducer(state = initialState, action) {
         filters: { ...state.filters, orderBy: action.payload },
         currentPage: 1,
       };
+    case "RESET":
+      return {
+        ...state,
+        filters: { origin: "ALL", filterByTemperament: "ALL", orderBy: "ALL" },
+        currentPage: 1,
+      };
 
     default:
       return {

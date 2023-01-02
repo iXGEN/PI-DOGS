@@ -1,14 +1,6 @@
-.container {
-  background-repeat: no-repeat;
-  position: absolute;
-  overflow-y: scroll;
-  height: 100%;
-  width: 100%;
-}
-
 .img {
   width: 600px;
-  height: 430px;
+  height: 450px;
   margin-right: 2em;
   border: 25px solid rgba(245, 245, 245, 0.6);
   backdrop-filter: blur(5px);
@@ -17,15 +9,34 @@
 }
 
 .p {
-  font-size: 1.1em;
+  font-size: 1.4em;
 }
 
 .dataSection {
-  border: 25px solid rgba(154, 112, 84, 0.9);
-
+  display: flex;
+  border: 20px solid rgba(154, 112, 84, 0.9);
   backdrop-filter: blur(5px);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-  font-family: "Sniglet", cursive;
+  font-family: cursive;
   color: #000000e2;
+}
+
+.leftDiv {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.rightDiv {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
 }

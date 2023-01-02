@@ -6,13 +6,13 @@ export const CardModel = (props) => {
   console.log(props);
   return (
     <Link to={`/dogDetail/${props.id}`} style={{ textDecoration: "none" }}>
-      <div className={style.card} key={props.id}>
-        <div>
-          <h3 className={style.title}> {props.name}</h3>
-          <img className={style.image} src={props.image} />
-          <p>{props.temperament}</p>
-          <p>{props.min_weight}</p>
-          <p>{props.max_weight}</p>
+      <div /* className={style.card} */ className={style.cardV} key={props.id}>
+        <img className={style.cardVImg} src={props.image} />
+        <div className={style.cardVBody}>
+          <h3 className={style.cardVTitle}> {props.name}</h3>
+          <p className={style.cardVInfo}>Temperaments: {props.temperament}</p>
+          <p className={style.cardVInfo}>Min weight: {props.min_weight}kg</p>
+          <p className={style.cardVInfo}>Max weight: {props.max_weight}kg</p>
         </div>
       </div>
     </Link>

@@ -12,6 +12,7 @@ export const Pagination = (props) => {
   for (let i = 1; i <= Math.ceil(cardsQuantity / 8); i++) {
     pages.push(i);
   }
+  console.log(pages);
 
   return (
     <div className="pagination">

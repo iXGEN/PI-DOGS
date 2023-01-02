@@ -71,3 +71,9 @@ export const orderBy = (payload) => {
     payload: payload,
   };
 };
+
+export const reset = () => {
+  return {
+    type: "RESET",
+  };
+};

@@ -1,5 +1,5 @@
 .header {
-  width: 100%;
+  width: calc(100% - 34.81px);
   padding: 1.1em;
   display: flex;
   justify-content: center;
