@@ -2,12 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  getDogs,
   getTemperaments,
   filterCreated,
   orderBy,
   filterTemperaments,
-  pageChanging,
   reset,
 } from "../../redux/actions";
 import { Nav } from "../Nav/Nav";
@@ -22,8 +20,6 @@ export const Filters = () => {
     dispatch(getTemperaments());
   }, [dispatch]);
 
-  ////////////////////////////////////////////////////////////////////////
-
   const handleClickCreated = (e) => {
     dispatch(filterCreated(e.target.value));
   };
@@ -34,8 +30,6 @@ export const Filters = () => {
   const handleTemperaments = (e) => {
     dispatch(filterTemperaments(e.target.value));
   };
-
-  ///////////////////////////////////////////////////////////////////////
 
   const handleReset = () => {
     dispatch(reset());

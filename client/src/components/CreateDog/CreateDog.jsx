@@ -50,10 +50,16 @@ const CreateDog = () => {
     );
   };
 
+  const handleDeleteTemperaments = (temp) => {
+    setInput({
+      ...input,
+      temperament: input.temperament.filter((t) => t !== temp),
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const noErrors = Object.keys(errors).length === 0;
-    /* if (noErrors) { */
+
     if (
       !errors.name &&
       !errors.min_weight &&
@@ -63,10 +69,13 @@ const CreateDog = () => {
       !errors.temperament &&
       input.name
     ) {
-      let dogLS = {};
-      for (var k in input) dogLS[k] = input[k];
-      dogLS.lifespan = `${dogLS.min_lifespan} - ${dogLS.max_lifespan} years`;
-      dispatch(postDog(dogLS));
+      if (input.min_lifespan && input.max_lifespan) {
+        let dogLS = {};
+        for (var k in input) dogLS[k] = input[k];
+        dogLS.lifespan = `${dogLS.min_lifespan} - ${dogLS.max_lifespan} years`;
+        dispatch(postDog(dogLS));
+      }
+      dispatch(postDog(input));
       alert("DOG SUCCESSFULLY CREATED");
       setInput({
         name: "",
@@ -216,13 +225,35 @@ const CreateDog = () => {
               ) : null}
             </select>
             <div>
-              <div>Selected temperaments: </div>
+              <div>Selected temperaments: {console.log(input.temperament)}</div>
               {input.temperament.map((t) => {
-                return <div className={style.temperamentsDiv}>{t}</div>;
+                return (
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteTemperaments(t)}
+                    >
+                      X
+                    </button>
+                    <div className={style.temperamentsDiv} key={t}>
+                      {t}
+                    </div>
+                  </div>
+                );
               })}
             </div>
           </div>
-          <button onClick={handleSubmit}>Create</button>
+          {!errors.name &&
+          !errors.min_weight &&
+          !errors.max_weight &&
+          !errors.min_height &&
+          !errors.max_height &&
+          !errors.temperament &&
+          input.name ? (
+            <button onClick={handleSubmit}>Create</button>
+          ) : (
+            <button disabled>Create</button>
+          )}
         </div>
       </form>
     </main>

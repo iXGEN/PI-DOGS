@@ -3,11 +3,10 @@ import style from "./CardModel.module.css";
 import { Link } from "react-router-dom";
 
 export const CardModel = (props) => {
-  console.log(props);
   return (
     <Link to={`/dogDetail/${props.id}`} style={{ textDecoration: "none" }}>
-      <div /* className={style.card} */ className={style.cardV} key={props.id}>
-        <img className={style.cardVImg} src={props.image} />
+      <div className={style.cardV} key={props.id}>
+        <img className={style.cardVImg} src={props.image} alt="img" />
         <div className={style.cardVBody}>
           <h3 className={style.cardVTitle}> {props.name}</h3>
           <p className={style.cardVInfo}>Temperaments: {props.temperament}</p>

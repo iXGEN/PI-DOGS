@@ -11,7 +11,6 @@ const getDbInfo = async () => {
     },
   });
   return dogsDb.map((d) => {
-    console.log(d);
     return {
       id: d.dataValues.id,
       name: d.dataValues.name,

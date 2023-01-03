@@ -1,9 +1,3 @@
-const validateDogs = (input) => {
-  const errors = {};
-
-  if (!input.name.length) errors.name = "El nombre no puede estar vacío";
-};
-
 const dogValidation = ({
   name,
   min_weight,
@@ -15,7 +9,7 @@ const dogValidation = ({
   image,
   temperament,
 }) => {
-  console.log(
+  /*  console.log(
     name,
     min_weight,
     max_weight,
@@ -25,7 +19,7 @@ const dogValidation = ({
     max_lifespan,
     image,
     temperament
-  );
+  ); */
   const validationErrors = {};
 
   if (
@@ -55,9 +49,6 @@ const dogValidation = ({
   } else if (typeof max_weight === "number") {
     validationErrors.max_weight = "Minimum weight must be a number";
   }
-  /*  else if (altura < 0 || altura > 280) {
-      validationErrors.altura = "La Altura solo puede estar entre 0 a 280";
-    } */
 
   if (
     parseInt(min_height) === 0 ||
@@ -120,6 +111,10 @@ const dogValidation = ({
   if (temperament.length === 0) {
     validationErrors.temperament = "You must add at least one temperament";
   }
+
+  /* for(let i = 0; i < temperament.length; i++){
+    if(temperament[i])
+  } */
 
   return validationErrors; // {name: error, min_weight: error, max_weight: error}
 };

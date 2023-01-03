@@ -1,5 +1,3 @@
-import { filterTemperaments } from "../redux/actions";
-
 export const filtersLibrary = (
   { origin, filterByTemperament, orderBy },
   allDogs,

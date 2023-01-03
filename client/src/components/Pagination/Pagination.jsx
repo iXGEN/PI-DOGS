@@ -7,62 +7,81 @@ export const Pagination = (props) => {
   const { cardsQuantity } = props;
   const dispatch = useDispatch();
 
-  const currentPage = useSelector((state) => state.currentPage);
   let pages = [];
   for (let i = 1; i <= Math.ceil(cardsQuantity / 8); i++) {
     pages.push(i);
   }
-  console.log(pages);
+
+  const currentPage = useSelector((state) => state.currentPage);
+
+  const handlePageUp = () => {
+    if (currentPage !== pages.length) {
+      dispatch(actions.pageChanging(currentPage + 1));
+    }
+  };
+
+  const handlePageDown = () => {
+    if (currentPage !== 1) {
+      dispatch(actions.pageChanging(currentPage - 1));
+    }
+  };
+
+  const handleRenderButtons = () => {
+    if (pages.length < 3) {
+      return pages.map((page) => {
+        return (
+          <button
+            onClick={() => dispatch(actions.pageChanging(page))}
+            className={currentPage === page ? "active" : ""}
+          >
+            {page}
+          </button>
+        );
+      });
+    }
+
+    if (currentPage === 1) {
+      return pages.slice(0, 3).map((page) => {
+        return (
+          <button
+            onClick={() => dispatch(actions.pageChanging(page))}
+            className={currentPage === page ? "active" : ""}
+            key={page} //key
+          >
+            {page}
+          </button>
+        );
+      });
+    }
+    if (currentPage === pages.length) {
+      return pages.slice(-3).map((page) => {
+        return (
+          <button
+            onClick={() => dispatch(actions.pageChanging(page))}
+            className={currentPage === page ? "active" : ""}
+          >
+            {page}
+          </button>
+        );
+      });
+    }
+    return pages.slice(currentPage - 2, currentPage + 1).map((page) => {
+      return (
+        <button
+          onClick={() => dispatch(actions.pageChanging(page))}
+          className={currentPage === page ? "active" : ""}
+        >
+          {page}
+        </button>
+      );
+    });
+  };
 
   return (
     <div className="pagination">
-      {currentPage !== 1 ? (
-        <>
-          <button
-            onClick={() => dispatch(actions.pageChanging(currentPage - 1))}
-          >
-            {"<"}
-          </button>
-          <button
-            onClick={() => dispatch(actions.pageChanging(currentPage - 1))}
-          >
-            {currentPage - 1}
-          </button>
-        </>
-      ) : (
-        <>
-          <button disable>{"<"}</button>
-        </>
-      )}
-
-      <button className="active">{currentPage}</button>
-
-      {currentPage !== pages[pages.length - 1] ? (
-        <>
-          <button
-            onClick={() => dispatch(actions.pageChanging(currentPage + 1))}
-          >
-            {currentPage + 1}
-          </button>
-          {currentPage === 1 ? (
-            <button
-              onClick={() => dispatch(actions.pageChanging(currentPage + 2))}
-            >
-              {currentPage + 2}
-            </button>
-          ) : null}
-          <button
-            onClick={() => dispatch(actions.pageChanging(currentPage + 1))}
-          >
-            {">"}
-          </button>
-        </>
-      ) : (
-        <>
-          <button disable>{currentPage + 1}</button>
-          <button disabled>{">"}</button>
-        </>
-      )}
+      <button onClick={handlePageDown}>{"<"}</button>
+      {handleRenderButtons()}
+      <button onClick={handlePageUp}>{">"}</button>
     </div>
   );
 };

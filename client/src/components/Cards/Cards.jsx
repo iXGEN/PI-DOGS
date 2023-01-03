@@ -1,9 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import * as actions from "../../redux/actions/index";
 import { CardModel } from "./CardModel";
-import { Pagination } from "../Pagination/Pagination";
 import style from "./CardModel.module.css";
 
 export const Cards = ({ currentCharacters }) => {
