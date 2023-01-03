@@ -53,7 +53,7 @@ export const filtersLibrary = (
       allDogsCopy.sort((a, b) => b.max_weight - a.max_weight);
     }
   }
-  const indexOfLastCharacter = currentPage * 8; //pagina x cantidad  perros en pagina
+  const indexOfLastCharacter = currentPage * 8;
   const indexOfFirsChararacter = indexOfLastCharacter - 8;
 
   return { allDogsCopy, indexOfFirsChararacter, indexOfLastCharacter };

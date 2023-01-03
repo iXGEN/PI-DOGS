@@ -215,20 +215,24 @@ const CreateDog = () => {
           <div>
             <select name="Add temperaments" onChange={handleAddTemperaments}>
               <option hidden>Select temperaments </option>
-              {temperaments.map((t) => (
-                <option value={t.name} key={t.id}>
-                  {t.name}
-                </option>
-              ))}
+              {temperaments.map((t) =>
+                !input.temperament.includes(t.name) ? (
+                  <option value={t.name} key={t.id}>
+                    {t.name}
+                  </option>
+                ) : null
+              )}
               {errors.temperament ? (
                 <p className={style.error}>{errors.temperament}</p>
               ) : null}
             </select>
             <div>
-              <div>Selected temperaments: {console.log(input.temperament)}</div>
+              <div key="Selected Temperaments">
+                Selected temperaments: {/* {console.log(input.temperament)} */}
+              </div>
               {input.temperament.map((t) => {
                 return (
-                  <div>
+                  <div key={t}>
                     <button
                       type="button"
                       onClick={() => handleDeleteTemperaments(t)}

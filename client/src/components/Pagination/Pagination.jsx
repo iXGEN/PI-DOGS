@@ -5,6 +5,8 @@ import "./pagination.modules.css";
 
 export const Pagination = (props) => {
   const { cardsQuantity } = props;
+  /* console.log(cardsQuantity); */
+
   const dispatch = useDispatch();
 
   let pages = [];
