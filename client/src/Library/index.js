@@ -17,7 +17,6 @@ export const filtersLibrary = (
 
   if (filterByTemperament !== "ALL") {
     allDogsCopy = allDogsCopy.filter((t) => {
-      console.log("console logeo", filterByTemperament, t);
       return t.temperament?.includes(filterByTemperament) === true;
     });
   }

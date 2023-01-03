@@ -108,12 +108,8 @@ const dogValidation = ({
     validationErrors.image = "The URL is not valid";
   }
 
-  if (temperament.length === 0) {
+  /*  if (temperament.length === 0) {
     validationErrors.temperament = "You must add at least one temperament";
-  }
-
-  /* for(let i = 0; i < temperament.length; i++){
-    if(temperament[i])
   } */
 
   return validationErrors; // {name: error, min_weight: error, max_weight: error}
