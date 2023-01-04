@@ -35,6 +35,7 @@ export const Pagination = (props) => {
           <button
             onClick={() => dispatch(actions.pageChanging(page))}
             className={currentPage === page ? "active" : ""}
+            key={page}
           >
             {page}
           </button>
@@ -61,6 +62,7 @@ export const Pagination = (props) => {
           <button
             onClick={() => dispatch(actions.pageChanging(page))}
             className={currentPage === page ? "active" : ""}
+            key={page}
           >
             {page}
           </button>
@@ -72,6 +74,7 @@ export const Pagination = (props) => {
         <button
           onClick={() => dispatch(actions.pageChanging(page))}
           className={currentPage === page ? "active" : ""}
+          key={page}
         >
           {page}
         </button>

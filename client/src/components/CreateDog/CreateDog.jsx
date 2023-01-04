@@ -55,6 +55,12 @@ const CreateDog = () => {
       ...input,
       temperament: input.temperament.filter((t) => t !== temp),
     });
+    setErrors(
+      dogValidation({
+        ...input,
+        temperament: input.temperament.filter((t) => t !== temp),
+      })
+    );
   };
 
   const handleSubmit = (e) => {
@@ -66,8 +72,7 @@ const CreateDog = () => {
       !errors.max_weight &&
       !errors.min_height &&
       !errors.max_height &&
-      !errors.temperament &&
-      input.name
+      !errors.temperament
     ) {
       if (input.min_lifespan && input.max_lifespan) {
         let dogLS = {};
@@ -97,7 +102,7 @@ const CreateDog = () => {
     <main className={style.main}>
       <div className={style.title}>
         <h1>Create a new dog!</h1>
-        <p>Crete your dog with its own characteristics</p>
+        <p>Create your dog with its own characteristics</p>
       </div>
 
       <form>
@@ -113,7 +118,10 @@ const CreateDog = () => {
               placeholder="Enter dog's name"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
+              autoFocus={true}
             />
+
             {errors.name ? (
               <p className={style.error}>{errors.name}</p>
             ) : (
@@ -131,8 +139,10 @@ const CreateDog = () => {
               placeholder="Enter minimum weight"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
             />
-            {input.min_weight.length ? (
+
+            {input.min_weight ? (
               errors.min_weight && (
                 <p className={style.error}>{errors.min_weight}</p>
               )
@@ -151,6 +161,7 @@ const CreateDog = () => {
               placeholder="Enter maximum weight"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
             />
             {input.max_weight ? (
               errors.max_weight && (
@@ -171,6 +182,7 @@ const CreateDog = () => {
               placeholder="Enter minimum height"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
             />
             {input.min_height ? (
               errors.min_height && (
@@ -191,6 +203,7 @@ const CreateDog = () => {
               placeholder="Enter maximum height"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
             />
             {input.max_height ? (
               errors.max_height && (
@@ -211,6 +224,7 @@ const CreateDog = () => {
               placeholder="Enter min life span"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
             />
             {input.min_lifespan ? (
               errors.min_lifespan && (
@@ -231,6 +245,7 @@ const CreateDog = () => {
               placeholder="Enter max life span"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
             />
             {input.max_lifespan ? (
               errors.max_lifespan && (
@@ -251,6 +266,7 @@ const CreateDog = () => {
               placeholder="upload or link of an image"
               autoComplete="off"
               onChange={handleInputs}
+              onBlur={handleInputs}
             />
             {input.image ? (
               errors.image && <p className={style.semiError}>{errors.image}</p>
@@ -263,6 +279,7 @@ const CreateDog = () => {
               className={style.customSelect}
               name="Add temperaments"
               onChange={handleAddTemperaments}
+              onBlur={handleInputs}
             >
               <option hidden>Select temperaments </option>
               {temperaments.map((t) =>
@@ -270,18 +287,14 @@ const CreateDog = () => {
                   <option value={t.name} key={t.id}>
                     {t.name}
                   </option>
-                ) : (
-                  <p></p>
-                )
-              )}
-              {input.temperament ? (
-                errors.temperament && (
-                  <p className={style.error}>{errors.temperament}</p>
-                )
-              ) : (
-                <p></p>
+                ) : null
               )}
             </select>
+            {errors.temperament ? (
+              <p className={style.error}>{errors.temperament}</p>
+            ) : (
+              <p></p>
+            )}
             <div>
               <div key="Selected Temperaments">
                 Selected temperaments: {/* {console.log(input.temperament)} */}
@@ -303,13 +316,13 @@ const CreateDog = () => {
               })}
             </div>
           </div>
+          {/* {console.log("Arreglo de errores", errors)} */}
           {!errors.name &&
           !errors.min_weight &&
           !errors.max_weight &&
           !errors.min_height &&
           !errors.max_height &&
-          !errors.temperament &&
-          input.name ? (
+          !errors.temperament ? (
             <button onClick={handleSubmit}>Create</button>
           ) : (
             <button disabled>Create</button>

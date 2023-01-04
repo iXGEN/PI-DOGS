@@ -36,6 +36,7 @@ const dogValidation = ({
   if (name.toString().trim().length === 0) {
     validationErrors.name = "REQUIRED: Name field has to be filled";
   }
+
   if (min_weight.toString().trim().length === 0) {
     validationErrors.min_weight =
       "REQUIRED: Minimum weight field has to be filled";
@@ -67,6 +68,7 @@ const dogValidation = ({
   } else if (typeof min_height === "number") {
     validationErrors.min_height = "Minimum height must be a number";
   }
+
   if (max_height.toString().trim().length === 0) {
     validationErrors.max_height =
       "REQUIRED: Maximum height field has to be filled";
@@ -93,6 +95,7 @@ const dogValidation = ({
     validationErrors.min_lifespan =
       "Minimum lifespan must be more than 0 years";
   }
+
   if (max_lifespan.toString().trim().length === 0) {
     validationErrors.max_lifespan = "Maximum lifespan field is empty";
   } else if (typeof max_lifespan === "number") {
@@ -107,9 +110,10 @@ const dogValidation = ({
   } else if (!/^https?:\/\/[\w]+(\.[\w]+)+[/#?]?.*$/.test(image)) {
     validationErrors.image = "The URL is not valid";
   }
-
+  /*   console.log("TEMPERAMENTARRAY", temperament); */
   if (temperament.length === 0) {
-    validationErrors.temperament = "You must add at least one temperament";
+    validationErrors.temperament =
+      "REQUIRED: You must add at least one temperament";
   }
 
   return validationErrors; // {name: error, min_weight: error, max_weight: error}
