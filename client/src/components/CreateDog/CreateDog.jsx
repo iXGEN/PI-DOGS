@@ -104,7 +104,9 @@ const CreateDog = () => {
         <div className={style.forms}>
           <div>
             <label className={style.labels}>Name</label>
+            <br></br>
             <input
+              className={style.input}
               type="text"
               name="name"
               value={input.name}
@@ -112,11 +114,17 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.name ? <p className={style.error}>{errors.name}</p> : null}
+            {errors.name ? (
+              <p className={style.error}>{errors.name}</p>
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
             <label className={style.labels}>Minimum weight</label>
+            <br></br>
             <input
+              className={style.input}
               type="number"
               name="min_weight"
               value={input.min_weight}
@@ -124,13 +132,19 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.min_weight ? (
-              <p className={style.error}>{errors.min_weight}</p>
-            ) : null}
+            {input.min_weight.length ? (
+              errors.min_weight && (
+                <p className={style.error}>{errors.min_weight}</p>
+              )
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
             <label className={style.labels}>Maximum weight</label>
+            <br></br>
             <input
+              className={style.input}
               type="number"
               name="max_weight"
               value={input.max_weight}
@@ -138,13 +152,19 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.max_weight ? (
-              <p className={style.error}>{errors.max_weight}</p>
-            ) : null}
+            {input.max_weight ? (
+              errors.max_weight && (
+                <p className={style.error}>{errors.max_weight}</p>
+              )
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
             <label className={style.labels}>Minimum height</label>
+            <br></br>
             <input
+              className={style.input}
               type="number"
               name="min_height"
               value={input.min_height}
@@ -152,13 +172,19 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.min_height ? (
-              <p className={style.error}>{errors.min_height}</p>
-            ) : null}
+            {input.min_height ? (
+              errors.min_height && (
+                <p className={style.error}>{errors.min_height}</p>
+              )
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
             <label className={style.labels}>Maximum height</label>
+            <br></br>
             <input
+              className={style.input}
               type="number"
               name="max_height"
               value={input.max_height}
@@ -166,13 +192,19 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.max_height ? (
-              <p className={style.error}>{errors.max_height}</p>
-            ) : null}
+            {input.max_height ? (
+              errors.max_height && (
+                <p className={style.error}>{errors.max_height}</p>
+              )
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
             <label className={style.labels}>Minimum Life span</label>
+            <br></br>
             <input
+              className={style.input}
               type="number"
               name="min_lifespan"
               value={input.min_lifespan}
@@ -180,13 +212,19 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.min_lifespan ? (
-              <p className={style.semiError}>{errors.min_lifespan}</p>
-            ) : null}
+            {input.min_lifespan ? (
+              errors.min_lifespan && (
+                <p className={style.semiError}>{errors.min_lifespan}</p>
+              )
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
             <label className={style.labels}>Maximum Life span</label>
+            <br></br>
             <input
+              className={style.input}
               type="number"
               name="max_lifespan"
               value={input.max_lifespan}
@@ -194,13 +232,19 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.max_lifespan ? (
-              <p className={style.semiError}>{errors.max_lifespan}</p>
-            ) : null}
+            {input.max_lifespan ? (
+              errors.max_lifespan && (
+                <p className={style.semiError}>{errors.max_lifespan}</p>
+              )
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
             <label className={style.labels}>Add an image</label>
+            <br></br>
             <input
+              className={style.input}
               type="text"
               name="image"
               value={input.image}
@@ -208,23 +252,35 @@ const CreateDog = () => {
               autoComplete="off"
               onChange={handleInputs}
             />
-            {errors.image ? (
-              <p className={style.semiError}>{errors.image}</p>
-            ) : null}
+            {input.image ? (
+              errors.image && <p className={style.semiError}>{errors.image}</p>
+            ) : (
+              <p></p>
+            )}
           </div>
           <div>
-            <select name="Add temperaments" onChange={handleAddTemperaments}>
+            <select
+              className={style.customSelect}
+              name="Add temperaments"
+              onChange={handleAddTemperaments}
+            >
               <option hidden>Select temperaments </option>
               {temperaments.map((t) =>
                 !input.temperament.includes(t.name) ? (
                   <option value={t.name} key={t.id}>
                     {t.name}
                   </option>
-                ) : null
+                ) : (
+                  <p></p>
+                )
               )}
-              {errors.temperament ? (
-                <p className={style.error}>{errors.temperament}</p>
-              ) : null}
+              {input.temperament ? (
+                errors.temperament && (
+                  <p className={style.error}>{errors.temperament}</p>
+                )
+              ) : (
+                <p></p>
+              )}
             </select>
             <div>
               <div key="Selected Temperaments">

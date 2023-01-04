@@ -28,7 +28,19 @@ export const DogDetail = () => {
           <section className={style.dataSection}>
             <div className={style.leftDiv}>
               <h1>{dogId[0]?.name}</h1>
-              <img className={style.img} src={dogId[0]?.image.url} alt="img" />
+              {dogId[0].image.url ? (
+                <img
+                  className={style.img}
+                  src={dogId[0]?.image.url}
+                  alt="img"
+                />
+              ) : (
+                <img
+                  className={style.img}
+                  src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/65761296352685.5eac4787a4720.jpg"
+                  alt="img"
+                />
+              )}
             </div>
             <div className={style.rightDiv}>
               <p className={style.p}>Temperaments: {dogId[0]?.temperament}</p>

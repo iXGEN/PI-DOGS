@@ -19,11 +19,28 @@
 .labels {
   margin-right: 5px;
 }
+
+.input {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid #000000;
+  color: rgba(9, 7, 5, 0.9);
+  width: 350px;
+  height: 25px;
+  padding-left: 10px;
+}
+
 .error {
   color: red;
   font-size: small;
   padding: 0;
   margin: 0;
+  padding: 0.5em 0.725em;
+  font-size: 0.8em;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.4);
 }
 
 .semiError {
@@ -31,11 +48,16 @@
   font-size: small;
   padding: 0;
   margin: 0;
+  padding: 0.5em 0.725em;
+  font-size: 0.8em;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.4);
 }
 
 .temperamentsDiv {
   display: inline-block;
-  background-color: #864d07;
+  background-color: #864d07cf;
   padding: 8px;
   width: 200px;
   color: #ffffff;
@@ -43,4 +65,10 @@
   border: 2px double #cccccc;
   border-radius: 10px;
   font-size: 15px;
+}
+
+.customSelect {
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 3px;
 }
