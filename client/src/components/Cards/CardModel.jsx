@@ -26,3 +26,5 @@ export const CardModel = (props) => {
     </Link>
   );
 };
+
+//
