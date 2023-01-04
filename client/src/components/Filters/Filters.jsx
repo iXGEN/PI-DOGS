@@ -36,7 +36,7 @@ export const Filters = () => {
   };
 
   return (
-    <>
+    <div className={style.allButtons}>
       <form action="">
         <Nav />
         <div>
@@ -103,6 +103,6 @@ export const Filters = () => {
       <button className={style.buttonFilter} onClick={handleReset}>
         Reset filters
       </button>
-    </>
+    </div>
   );
 };

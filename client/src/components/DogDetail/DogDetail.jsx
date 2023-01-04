@@ -24,10 +24,10 @@ export const DogDetail = () => {
   return (
     <div>
       {dogId.length > 0 ? (
-        <div>
+        <div /* className={style.global} */>
           <section className={style.dataSection}>
             <div className={style.leftDiv}>
-              <h1>{dogId[0]?.name}</h1>
+              <h1 className={style.h1class}>{dogId[0]?.name}</h1>
               {dogId[0].image.url ? (
                 <img
                   className={style.img}
