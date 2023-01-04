@@ -8,7 +8,7 @@ import CreateDog from "./components/CreateDog/CreateDog";
 import { useLocation } from "react-router-dom";
 import Header from "./components/Header/Header";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://pi-dogs-production-c336.up.railway.app/";
 
 function App() {
   const location = useLocation();
