@@ -3,25 +3,6 @@ const { getAllDogs } = require("../../controllers/Dogs/All_info");
 
 const router = Router();
 
-/* router.get("/", async (req, res) => {
-  const name = req.query.name;
-  let dogsTotal = await getAllDogs();
-  try {
-    if (name) {
-      let dogsName = await dogsTotal.filter((ele) =>
-        ele.name.toLowerCase().includes(name.toLowerCase())
-      );
-      dogsName.length
-        ? res.status(200).send(dogsName)
-        : throw new Error("eeeeee");
-    } else {
-      res.status(200).send(dogsTotal);
-    }
-  } catch (error) {
-    res.status(404).send(error);
-  }
-}); */
-////////////////////////////
 router.get("/", async (req, res) => {
   const name = req.query.name;
   let allDogs = await getAllDogs();
