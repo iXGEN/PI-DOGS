@@ -11,8 +11,11 @@ const Home = () => {
   const dispatch = useDispatch();
   const { allDogs, filters, currentPage } = useSelector((state) => state);
 
-  const { allDogsCopy, indexOfFirsChararacter, indexOfLastCharacter } =
-    filtersLibrary(filters, allDogs, currentPage);
+  const { allDogsCopy, indexOfFirstDog, indexOfLastDog } = filtersLibrary(
+    filters,
+    allDogs,
+    currentPage
+  );
 
   useEffect(() => {
     dispatch(getDogs());
@@ -21,12 +24,7 @@ const Home = () => {
   return (
     <div className={style.Home}>
       <Filters />
-      <Cards
-        currentCharacters={allDogsCopy.slice(
-          indexOfFirsChararacter,
-          indexOfLastCharacter
-        )}
-      />
+      <Cards currentDogs={allDogsCopy.slice(indexOfFirstDog, indexOfLastDog)} />
       ;
       <div className={style.pages}>
         <Pagination

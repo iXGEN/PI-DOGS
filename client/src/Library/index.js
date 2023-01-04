@@ -52,8 +52,8 @@ export const filtersLibrary = (
       allDogsCopy.sort((a, b) => b.max_weight - a.max_weight);
     }
   }
-  const indexOfLastCharacter = currentPage * 8;
-  const indexOfFirsChararacter = indexOfLastCharacter - 8;
+  const indexOfLastDog = currentPage * 8;
+  const indexOfFirstDog = indexOfLastDog - 8;
 
-  return { allDogsCopy, indexOfFirsChararacter, indexOfLastCharacter };
+  return { allDogsCopy, indexOfFirstDog, indexOfLastDog };
 };

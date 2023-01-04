@@ -2,10 +2,10 @@ import React from "react";
 import { CardModel } from "./CardModel";
 import style from "./CardModel.module.css";
 
-export const Cards = ({ currentCharacters }) => {
+export const Cards = ({ currentDogs }) => {
   return (
     <div className={style.containerCards}>
-      {currentCharacters?.map((el) => (
+      {currentDogs?.map((el) => (
         <CardModel
           name={el.name}
           image={el.image?.url}
