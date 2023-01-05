@@ -8,6 +8,7 @@ const dogValidation = ({
   max_lifespan,
   image,
   temperament,
+  dogs,
 }) => {
   const validationErrors = {};
 
@@ -24,6 +25,10 @@ const dogValidation = ({
 
   if (name.toString().trim().length === 0) {
     validationErrors.name = "REQUIRED: Name field has to be filled";
+  }
+  let newDog = dogs.find((el) => el.name == name);
+  if (newDog) {
+    validationErrors.name = "Dog already created";
   }
 
   if (min_weight.toString().trim().length === 0) {
