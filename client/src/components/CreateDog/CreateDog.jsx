@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 const CreateDog = () => {
   const homeLink = useHistory();
   const temperaments = useSelector((state) => state.temperaments);
-  const dogs = useSelector((state) => state.dogs);
+  const dogs = useSelector((state) => state.allDogs);
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({
