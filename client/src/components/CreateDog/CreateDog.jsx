@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTemperaments, postDog } from "../../redux/actions";
 import style from "../CreateDog/CreateDog.module.css";
 import dogValidation from "./createDogLibrary.js";
-
+import { useHistory } from "react-router-dom";
 const CreateDog = () => {
+  const homeLink = useHistory();
   const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
 
@@ -65,7 +66,6 @@ const CreateDog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    /* console.log(errors); */
 
     if (
       !errors.name &&
@@ -80,12 +80,12 @@ const CreateDog = () => {
         for (var k in input) dogLS[k] = input[k];
         dogLS.lifespan = `${dogLS.min_lifespan} - ${dogLS.max_lifespan} years`;
         dispatch(postDog(dogLS));
-        /* console.log("ERRORS AFTER DISPATCH DOGLS", errors); */
       }
       dispatch(postDog(input));
       alert("DOG SUCCESSFULLY CREATED");
-      /* console.log("ERRORS AFT DISPATCH INPUT", errors); */
-      setInput({
+      homeLink.push("/home");
+
+      /* setInput({
         name: "",
         min_weight: "",
         max_weight: "",
@@ -95,7 +95,7 @@ const CreateDog = () => {
         max_lifespan: "",
         image: "",
         temperament: [],
-      });
+      }); */
     } else {
       alert("SOME FIELDS HAVE ERRORS");
     }
@@ -300,7 +300,7 @@ const CreateDog = () => {
             )}
             <div>
               <div className={style.selectedTemps} key="Selected Temperaments">
-                Selected temperaments: {/* {console.log(input.temperament)} */}
+                Selected temperaments:
               </div>
               {input.temperament.map((t) => {
                 return (
@@ -319,7 +319,7 @@ const CreateDog = () => {
               })}
             </div>
           </div>
-          {/* {console.log("Arreglo de errores", errors)} */}
+
           {!errors.name &&
           !errors.min_weight &&
           !errors.max_weight &&
