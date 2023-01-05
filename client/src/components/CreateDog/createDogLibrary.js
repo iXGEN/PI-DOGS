@@ -9,17 +9,6 @@ const dogValidation = ({
   image,
   temperament,
 }) => {
-  /*  console.log(
-    name,
-    min_weight,
-    max_weight,
-    min_height,
-    max_height,
-    min_lifespan,
-    max_lifespan,
-    image,
-    temperament
-  ); */
   const validationErrors = {};
 
   if (
@@ -110,13 +99,13 @@ const dogValidation = ({
   } else if (!/^https?:\/\/[\w]+(\.[\w]+)+[/#?]?.*$/.test(image)) {
     validationErrors.image = "The URL is not valid";
   }
-  /*   console.log("TEMPERAMENTARRAY", temperament); */
+  console.log("TEMPERAMENTARRAY", temperament);
   if (temperament.length === 0) {
     validationErrors.temperament =
       "REQUIRED: You must add at least one temperament";
   }
 
-  return validationErrors; // {name: error, min_weight: error, max_weight: error}
+  return validationErrors;
 };
 
 export default dogValidation;

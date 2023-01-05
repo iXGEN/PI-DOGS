@@ -1,8 +1,5 @@
 const { Router } = require("express");
 const { Dogs, Temperaments } = require("../../db");
-const { getApiInfo } = require("../../controllers/Dogs/API_info");
-const { getDbInfo } = require("../../controllers/Dogs/dataBase_info");
-const { getAllDogs } = require("../../controllers/Dogs/All_info");
 
 const router = Router();
 

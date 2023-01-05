@@ -263,7 +263,7 @@ const CreateDog = () => {
               type="text"
               name="image"
               value={input.image}
-              placeholder="upload or link of an image"
+              placeholder="link of an image"
               autoComplete="off"
               onChange={handleInputs}
               onBlur={handleInputs}
@@ -296,7 +296,7 @@ const CreateDog = () => {
               <p></p>
             )}
             <div>
-              <div key="Selected Temperaments">
+              <div className={style.selectedTemps} key="Selected Temperaments">
                 Selected temperaments: {/* {console.log(input.temperament)} */}
               </div>
               {input.temperament.map((t) => {

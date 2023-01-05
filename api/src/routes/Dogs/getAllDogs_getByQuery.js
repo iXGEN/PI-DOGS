@@ -4,9 +4,9 @@ const { getAllDogs } = require("../../controllers/Dogs/All_info");
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const name = req.query.name;
-  let allDogs = await getAllDogs();
   try {
+    const name = req.query.name;
+    let allDogs = await getAllDogs();
     if (name) {
       let dogsName = await allDogs.filter((ele) =>
         ele.name.toLowerCase().includes(name.toLowerCase())
