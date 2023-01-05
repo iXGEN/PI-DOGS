@@ -99,7 +99,7 @@ const dogValidation = ({
   } else if (!/^https?:\/\/[\w]+(\.[\w]+)+[/#?]?.*$/.test(image)) {
     validationErrors.image = "The URL is not valid";
   }
-  console.log("TEMPERAMENTARRAY", temperament);
+  /* console.log("TEMPERAMENTARRAY", temperament); */
   if (temperament.length === 0) {
     validationErrors.temperament =
       "REQUIRED: You must add at least one temperament";

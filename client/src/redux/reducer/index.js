@@ -1,6 +1,5 @@
 const initialState = {
   allDogs: [],
-  copyAllDogs: [],
   temperaments: [],
   currentPage: 1,
   dogId: [],

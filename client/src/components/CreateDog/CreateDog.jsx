@@ -65,6 +65,7 @@ const CreateDog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    /* console.log(errors); */
 
     if (
       !errors.name &&
@@ -79,9 +80,11 @@ const CreateDog = () => {
         for (var k in input) dogLS[k] = input[k];
         dogLS.lifespan = `${dogLS.min_lifespan} - ${dogLS.max_lifespan} years`;
         dispatch(postDog(dogLS));
+        /* console.log("ERRORS AFTER DISPATCH DOGLS", errors); */
       }
       dispatch(postDog(input));
       alert("DOG SUCCESSFULLY CREATED");
+      /* console.log("ERRORS AFT DISPATCH INPUT", errors); */
       setInput({
         name: "",
         min_weight: "",
