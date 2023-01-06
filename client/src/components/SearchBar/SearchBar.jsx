@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import * as actions from "../../redux/actions/index.js";
 import { useDispatch } from "react-redux";
@@ -17,6 +17,7 @@ export const SearchBar = () => {
     dispatch(actions.searchDog(search));
     dispatch(actions.pageChanging(1));
   };
+
   return (
     <div className={style.container}>
       <input

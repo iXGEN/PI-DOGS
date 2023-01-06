@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 const CreateDog = () => {
   const homeLink = useHistory();
   const temperaments = useSelector((state) => state.temperaments);
+
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({
@@ -67,25 +68,25 @@ const CreateDog = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
+    /*  if (
       !errors.name &&
       !errors.min_weight &&
       !errors.max_weight &&
       !errors.min_height &&
       !errors.max_height &&
       !errors.temperament
-    ) {
-      if (input.min_lifespan && input.max_lifespan) {
-        let dogLS = {};
-        for (var k in input) dogLS[k] = input[k];
-        dogLS.lifespan = `${dogLS.min_lifespan} - ${dogLS.max_lifespan} years`;
-        dispatch(postDog(dogLS));
-      }
-      dispatch(postDog(input));
-      alert("DOG SUCCESSFULLY CREATED");
-      homeLink.push("/home");
+    ) { */
+    if (input.min_lifespan && input.max_lifespan) {
+      let dogLS = {};
+      for (var k in input) dogLS[k] = input[k];
+      dogLS.lifespan = `${dogLS.min_lifespan} - ${dogLS.max_lifespan} years`;
+      dispatch(postDog(dogLS));
+    }
+    dispatch(postDog(input));
+    alert("DOG SUCCESSFULLY CREATED");
+    homeLink.push("/home");
 
-      /* setInput({
+    /* setInput({
         name: "",
         min_weight: "",
         max_weight: "",
@@ -96,9 +97,9 @@ const CreateDog = () => {
         image: "",
         temperament: [],
       }); */
-    } else {
+    /* } else {
       alert("SOME FIELDS HAVE ERRORS");
-    }
+    } */
   };
 
   return (

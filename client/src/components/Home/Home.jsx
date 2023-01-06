@@ -12,7 +12,8 @@ const Home = () => {
   const { allDogs, filters, currentPage } = useSelector((state) => state);
 
   const { allDogsCopy, indexOfFirstDog, indexOfLastDog } = filtersLibrary(
-    filters,
+    //traigo variables de la librería
+    filters, // envio a la lib los estados globales
     allDogs,
     currentPage
   );
