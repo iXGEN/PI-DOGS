@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 const CreateDog = () => {
   const homeLink = useHistory();
   const temperaments = useSelector((state) => state.temperaments);
-
+  const dogs = useSelector((state) => state.allDogs);
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({
@@ -35,10 +35,13 @@ const CreateDog = () => {
       [e.target.name]: e.target.value,
     });
     setErrors(
-      dogValidation({
-        ...input,
-        [e.target.name]: e.target.value,
-      })
+      dogValidation(
+        {
+          ...input,
+          [e.target.name]: e.target.value,
+        },
+        dogs
+      )
     );
   };
 
