@@ -1,14 +1,17 @@
-const dogValidation = ({
-  name,
-  min_weight,
-  max_weight,
-  min_height,
-  max_height,
-  min_lifespan,
-  max_lifespan,
-  image,
-  temperament,
-}) => {
+const dogValidation = (
+  {
+    name,
+    min_weight,
+    max_weight,
+    min_height,
+    max_height,
+    min_lifespan,
+    max_lifespan,
+    image,
+    temperament,
+  },
+  dogs
+) => {
   const validationErrors = {};
 
   if (
@@ -24,6 +27,10 @@ const dogValidation = ({
 
   if (name.toString().trim().length === 0) {
     validationErrors.name = "REQUIRED: Name field has to be filled";
+  }
+  let newDog = dogs.find((el) => el.name.toLowerCase() === name.toLowerCase());
+  if (newDog) {
+    validationErrors.name = "Dog has already been created";
   }
 
   if (min_weight.toString().trim().length === 0) {
