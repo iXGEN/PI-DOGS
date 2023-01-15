@@ -21,5 +21,5 @@ const LandingPage = () => {
     </div>
   );
 };
-
+console.log("test");
 export default LandingPage;
