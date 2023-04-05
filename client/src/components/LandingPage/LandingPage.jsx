@@ -1,8 +1,9 @@
 import React from "react";
 import { FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import style from "./LandingPage.module.css";
 
-const LandingPage = ({ onClick }) => {
+const LandingPage = () => {
   const linkedinLink = "https://www.linkedin.com/";
   const twitterLink = "https://twitter.com/";
   const emailLink = "dev.barrazagal@gmail.com";
@@ -12,6 +13,10 @@ const LandingPage = ({ onClick }) => {
     alert("Email copied to clipboard!");
   };
 
+  const history = useHistory();
+  const handleEnterClick = () => {
+    history.push("/home");
+  };
   return (
     <div className={style.main}>
       <section>
@@ -19,7 +24,7 @@ const LandingPage = ({ onClick }) => {
         <h1>MY PROJECT</h1>
         <h1>ABOUT DOGS</h1>
 
-        <button className={style.button} onClick={onClick}>
+        <button className={style.button} onClick={handleEnterClick}>
           Enter
         </button>
       </section>
