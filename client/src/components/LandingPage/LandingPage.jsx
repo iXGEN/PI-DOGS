@@ -1,21 +1,15 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
-import style from "../LandingPage/LandingPage.module.css";
+import style from "./LandingPage.module.css";
 
-const LandingPage = () => {
-  const homeLink = useHistory();
-  const onclick = () => {
-    homeLink.push("/home");
-  };
-
-  const linkedinLink = "https://www.linkedin.com/in/ignaciobarra-zagal/";
-  const twitterLink = "https://twitter.com/IgnaBarraZagal";
+const LandingPage = ({ onClick }) => {
+  const linkedinLink = "https://www.linkedin.com/";
+  const twitterLink = "https://twitter.com/";
   const emailLink = "dev.barrazagal@gmail.com";
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(emailLink);
-    alert("Email address copied to clipboard!");
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText(emailLink);
+    alert("Email copied to clipboard!");
   };
 
   return (
@@ -25,22 +19,17 @@ const LandingPage = () => {
         <h1>MY PROJECT</h1>
         <h1>ABOUT DOGS</h1>
 
-        <button className={style.button} onClick={onclick}>
+        <button className={style.button} onClick={onClick}>
           Enter
         </button>
       </section>
       <section>
-        <a href={linkedinLink} target="_blank" rel="noreferrer">
-          <FaLinkedin />
-        </a>
-        <a href={twitterLink} target="_blank" rel="noreferrer">
-          <FaTwitter />
-        </a>
-        <span onClick={handleCopyEmail}>
-          <FaEnvelope /> {emailLink}
-        </span>
+        <FaLinkedin onClick={() => window.open(linkedinLink, "_blank")} />
+        <FaTwitter onClick={() => window.open(twitterLink, "_blank")} />
+        <FaEnvelope onClick={copyEmail} />
       </section>
     </div>
   );
 };
+
 export default LandingPage;
