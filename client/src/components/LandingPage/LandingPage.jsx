@@ -23,7 +23,7 @@ const LandingPage = ({ onClick }) => {
           Enter
         </button>
       </section>
-      <section>
+      <section className={style.contactInfo}>
         <FaLinkedin onClick={() => window.open(linkedinLink, "_blank")} />
         <FaTwitter onClick={() => window.open(twitterLink, "_blank")} />
         <FaEnvelope onClick={copyEmail} />
