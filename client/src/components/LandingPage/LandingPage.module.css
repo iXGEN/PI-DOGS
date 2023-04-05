@@ -64,10 +64,18 @@ h1 {
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
-
 .contactInfo {
   display: flex;
   flex-direction: row;
-  margin-right: 0.5rem;
-  margin-top: 1.5rem;
+}
+
+.contactInfo > * {
+  font-size: 24px;
+  margin-top: 18px;
+  margin-right: 16px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.contactInfo > *:hover {
+  transform: scale(1.2);
 }
