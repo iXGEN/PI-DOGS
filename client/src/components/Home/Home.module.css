@@ -24,3 +24,29 @@
   margin: 1em;
   padding-bottom: 20em;
 }
+
+@media screen and (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pages {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loader {
+    padding-bottom: 10em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home {
+    background-position: center;
+  }
+
+  .loader {
+    padding-bottom: 5em;
+  }
+}
