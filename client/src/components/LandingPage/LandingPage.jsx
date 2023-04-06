@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 import style from "./LandingPage.module.css";
 
 const LandingPage = () => {
-  const linkedinLink = "https://www.linkedin.com/";
-  const twitterLink = "https://twitter.com/";
+  const linkedinLink = "https://www.linkedin.com/in/ignaciobarra-zagal/";
+  const twitterLink = "https://twitter.com/IgnaBarraZagal";
   const emailLink = "dev.barrazagal@gmail.com";
 
   const copyEmail = async () => {
