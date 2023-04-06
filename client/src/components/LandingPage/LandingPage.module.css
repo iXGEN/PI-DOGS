@@ -13,42 +13,35 @@ html {
   align-items: center;
   margin-top: 4em;
   justify-content: center;
+  text-align: center;
 }
 
 h1 {
   color: #151414;
   font-family: "Raleway", sans-serif;
-  font-size: 62px;
+  font-size: 4vw; /* Use viewport units for font size */
   font-weight: 800;
-  line-height: 72px;
-  margin: 0 0 24px;
+  line-height: 1.2;
+  margin: 0 0 1.5rem; /* Use rem for margin */
   text-align: center;
   text-transform: uppercase;
 }
 
 .button {
+  display: inline-flex;
   align-items: center;
-  margin-left: 40%;
-  appearance: none;
+  justify-content: center;
+  margin: 2rem 0 0; /* Use rem for margin */
+  padding: 1rem 2rem; /* Use rem for padding */
+  font-size: 1.5rem; /* Use rem for font size */
   background-color: #fcfcfd;
   border-radius: 4px;
-  border-width: 0;
+  border: none;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  box-sizing: border-box;
   color: #36395a;
   cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono", monospace;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   transition: box-shadow 0.15s, transform 0.15s;
   user-select: none;
@@ -56,7 +49,6 @@ h1 {
   touch-action: manipulation;
   white-space: nowrap;
   will-change: box-shadow, transform;
-  font-size: 18px;
 }
 
 .button:hover {
@@ -66,16 +58,36 @@ h1 {
 }
 .contactInfo {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap; /* Allow items to wrap to the next line on small screens */
+  justify-content: center;
 }
 
 .contactInfo > * {
-  font-size: 24px;
-  margin-top: 18px;
-  margin-right: 16px;
+  margin: 1rem; /* Use rem for margin */
+  font-size: 2vw; /* Use viewport units for font size */
   transition: transform 0.2s ease-in-out;
 }
 
 .contactInfo > *:hover {
   transform: scale(1.2);
+}
+
+@media screen and (max-width: 768px) {
+  .contactInfo {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactInfo > * {
+    margin: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contactInfo > * {
+    font-size: 16px;
+    margin: 16px;
+  }
 }
