@@ -11,7 +11,7 @@ import axios from "axios";
 import app, { allAnalytics } from "./firebase/index";
 axios.defaults.baseURL = "https://pi-dogs-production-c336.up.railway.app/";
 /* axios.defaults.baseURL = "http://localhost:3001/"; */
-//
+
 function App() {
   const location = useLocation();
 
