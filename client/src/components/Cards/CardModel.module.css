@@ -109,18 +109,18 @@
     border-radius: 0 0 15px 15px;
     color: #000;
     height: auto;
-    padding: 20px;
+    padding: 0px;
     transition: none;
   }
 
   .cardVTitle {
-    font-size: 20px;
+    font-size: 24px;
     margin-left: 0;
     margin-right: 0;
   }
 
   .cardVInfo {
-    font-size: 16px;
+    font-size: 18px;
     margin-left: 0;
     margin-right: 0;
     margin-top: 10px;
