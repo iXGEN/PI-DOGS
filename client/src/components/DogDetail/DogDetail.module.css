@@ -19,13 +19,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2em 0;
+  margin: 3em 0;
   padding: 2em;
   border: 1em solid rgba(154, 112, 84, 0.9);
   border-radius: 1em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
   font-family: cursive;
   color: #000000e2;
+}
+.p {
+  margin: 1.5rem;
 }
 
 .leftDiv,
