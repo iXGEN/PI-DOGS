@@ -1,66 +1,66 @@
-/* .global {
-  @media screen and(max-width: 950px) {
-    display: flex;
-    flex-direction: column;
-  }
-} */
-
-.img {
-  width: 600px;
-  height: 450px;
-  margin-right: 2em;
-  border: 25px solid rgba(245, 245, 245, 0.6);
-  backdrop-filter: blur(5px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+.global {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.p {
-  font-size: 1.4em;
+.img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 1em 0;
+  border: 1em solid rgba(245, 245, 245, 0.6);
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
 }
 
 .dataSection {
   display: flex;
-  border: 20px solid rgba(154, 112, 84, 0.9);
-  backdrop-filter: blur(5px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3em 0;
+  padding: 2em;
+  border: 1em solid rgba(154, 112, 84, 0.9);
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
   font-family: cursive;
   color: #000000e2;
 }
-
-.leftDiv {
-  float: left;
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
+.p {
+  margin: 1.5rem;
 }
 
+.leftDiv,
 .rightDiv {
-  float: right;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
+  width: 100%;
 }
 
-@media (max-width: 900px) {
-  /* … */
-  .dataSection {
-    flex-direction: column;
-    align-items: center;
+@media (min-width: 601px) {
+  .global {
+    flex-direction: row;
     justify-content: center;
-    font-size: 13px;
   }
-  .img {
-    width: 450px;
-    height: 300px;
+  .leftDiv {
+    width: 40%;
+    margin: 0 1em 0 0;
   }
-  .h1class {
-    font-size: 30px;
+  .rightDiv {
+    width: 60%;
+    margin: 0 0 0 1em;
+  }
+}
+
+@media (min-width: 901px) {
+  .dataSection {
+    flex-direction: row;
+  }
+  .leftDiv {
+    width: 50%;
+    margin: 0 1em 0 0;
+  }
+  .rightDiv {
+    width: 50%;
+    margin: 0 0 0 1em;
   }
 }

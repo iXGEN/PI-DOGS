@@ -36,12 +36,13 @@
 }
 
 .cardV {
-  width: 400px;
+  width: 90%;
   height: 300px;
   border-radius: 20px;
   overflow: hidden;
   border: 8px solid #fff;
   position: relative;
+  margin: 20px;
 }
 
 .cardVImg {
@@ -88,4 +89,45 @@
   margin-right: 20px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .cardV {
+    height: auto;
+  }
+
+  .cardVImg {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .cardVBody {
+    position: static;
+    background: transparent;
+    border-radius: 0 0 15px 15px;
+    color: #000;
+    height: auto;
+    padding: 0px;
+    transition: none;
+  }
+
+  .cardVTitle {
+    font-size: 24px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .cardVInfo {
+    font-size: 18px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .cardV:hover .cardVBody {
+    right: -100%;
+  }
 }

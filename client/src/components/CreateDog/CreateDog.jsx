@@ -339,6 +339,5 @@ const CreateDog = () => {
     </main>
   );
 };
-console.log("a");
 
 export default CreateDog;
